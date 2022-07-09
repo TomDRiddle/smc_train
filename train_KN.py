@@ -20,12 +20,14 @@ class Train_System:
         self.general_resistance = General_Resistance(self.num_carriage)
         
     def davis_function(self):
+        #output unit:(N/t)*t
         davis_resistance_force = self.Davis_coef[:,0]+self.Davis_coef[:,1]*self.train_velocity+self.Davis_coef[:,2]*self.train_velocity*self.train_velocity
         ##print(self.train_velocity)
         #print('df:',davis_resistance_force*self.M)
         return davis_resistance_force*self.M
 
     def spring_function(self):
+        #output unit:N
         before_train_location = self.train_location.copy()
         before_train_location[-1] = 0
         after_train_location = self.train_location.copy()
@@ -36,12 +38,13 @@ class Train_System:
         return spring_force
 
     def refer_run_force(self):
-        refer_force = self.spring_function()/(10**3) - self.davis_function()/(10**3)
+        #output unit:N
+        refer_force = self.spring_function() - self.davis_function()
         return refer_force
 
     
     def Update(self,U,Bf,t):
-        F = self.refer_run_force() + self.general_resistance.update(t)
+        F = self.refer_run_force()/1000 + self.general_resistance.update(t)*self.M#(N/1000)+KN
         
         self.train_acceleration = Bf*U/self.M + F/self.M
         #print('U:',Bf*U/self.M)

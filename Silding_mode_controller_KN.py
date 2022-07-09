@@ -28,10 +28,12 @@ class Silding_Mode_Controller:
         self.A_TD = NTD_m(self.num_carriage,t_sampling=self.t_sampling)
 
     def davis_function(self):
+        #output unit:(N/t)*t
         davis_resistance_force = self.Davis_coef[:,0]+self.Davis_coef[:,1]*self.train_velocity+self.Davis_coef[:,2]*self.train_velocity*self.train_velocity
         return davis_resistance_force*self.M
 
     def spring_function(self):
+        #output unit:N
         before_train_location = self.train_location.copy()
         before_train_location[-1] = 0
         after_train_location = self.train_location.copy()
@@ -45,7 +47,7 @@ class Silding_Mode_Controller:
 
 
     def control(self):
-        self.F0 = - self.davis_function()/1000 + self.spring_function()/1000
+        self.F0 = (self.spring_function() - self.davis_function())/1000#kN
         self.silding_mode_surface()
         #print(S)
         self.U = - self.K2*np.sign(self.S) - self.K1*self.S - self.C*self.E_dot - self.F0 - self.F_hat + self.Ad
