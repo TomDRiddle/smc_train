@@ -3,7 +3,7 @@ from train_KN import Train_System
 from Silding_mode_controller_KN import Silding_Mode_Controller
 from network import Neraul_Network_Controller
 import matplotlib.pyplot as plt
-from smc_train.railway import A,V,X
+from railway import A,V,X
 
 t_sampling = 0.001
 real_train_conf = {'M':np.array([45,55,48,57]),
