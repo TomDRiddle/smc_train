@@ -63,6 +63,7 @@ class NTD():
         self.v1+=self.t_sampling*dv1
         self.v2+=self.t_sampling*dv2
         return dv1,dv2
+        
 class NTD_m():
     def __init__(self,num_carriage,r=1000,h=0.03,t_sampling=0.01):
         self.v1=np.zeros(num_carriage)

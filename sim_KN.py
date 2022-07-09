@@ -1,10 +1,10 @@
 import numpy as np
 from train_KN import Train_System
 from Silding_mode_controller_KN import Silding_Mode_Controller
-from Adaptive_law import Adaptive_Law
 from network import Neraul_Network_Controller
 import matplotlib.pyplot as plt
-from railway2 import A,V,X
+from smc_train.railway import A,V,X
+
 t_sampling = 0.001
 real_train_conf = {'M':np.array([45,55,48,57]),
                    'Davis_coef':np.array([[4.7,1.50,0.00013],
