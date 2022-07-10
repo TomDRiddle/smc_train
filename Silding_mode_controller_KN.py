@@ -50,7 +50,7 @@ class Silding_Mode_Controller:
         self.F0 = (self.spring_function() - self.davis_function())/1000#kN
         self.silding_mode_surface()
         #print(S)
-        self.U = - self.K2*np.sign(self.S) - self.K1*self.S - self.C*self.E_dot - self.F0 - self.F_hat + self.Ad
+        self.U = - self.K2*np.sign(self.S) - self.K1*self.S - self.C*self.E_dot - self.F0 - self.F_hat + self.Ad*self.M
         return self.U,self.S
     
     def dF_hat_law(self,ddx,dF0,S,dU,B0):

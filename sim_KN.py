@@ -23,7 +23,7 @@ virtual_train_conf = {'M':np.array([50,50,50,50]),
 
 num_carriage = len(real_train_conf['M'])    
 K2 = 100
-K1 = 100000
+K1 = 10000
 C =100
 p =1
 v =1
