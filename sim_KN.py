@@ -22,9 +22,9 @@ virtual_train_conf = {'M':np.array([50,50,50,50]),
                    'Le':400}
 
 num_carriage = len(real_train_conf['M'])    
-K2 = 1000
+K2 = 100
 K1 = 100000
-C =500
+C =100
 p =1
 v =1
 Bf = np.ones(num_carriage)

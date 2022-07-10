@@ -21,7 +21,7 @@ class General_Resistance:
         Wr = 10.5*((2*self.pi)/3)*(self.g/self.Lr*1000)
         Ws = 0.00013*self.Ls*self.g/1000
         Wi = self.g*sin(self.theta)
-        We = 0.08*self.g*sin(0.2*self.t)*cos(0.2*self.t)
+        We = 0.08*self.g*sin(0.2*self.t)*cos(0.2*self.t)/1000
 
         return self.happen[0]*Ws+self.happen[1]*Wr+self.happen[2]*We+self.happen[3]*Wi  
 
