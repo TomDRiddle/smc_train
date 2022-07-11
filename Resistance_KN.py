@@ -18,8 +18,8 @@ class General_Resistance:
         
     def general_resistance(self):
         #unit:kN/t
-        Wr = 10.5*((2*self.pi)/3)*(self.g/self.Lr*1000)
-        Ws = 0.00013*self.Ls*self.g/1000
+        Wr = 10.5*((2*self.pi)/3)*self.g/(self.Lr*1000)
+        Ws = (0.00013*self.Ls*self.g)/1000
         Wi = self.g*sin(self.theta)
         We = 0.08*self.g*sin(0.2*self.t)*cos(0.2*self.t)/1000
 

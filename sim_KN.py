@@ -22,9 +22,9 @@ virtual_train_conf = {'M':np.array([50,50,50,50]),
                    'Le':400}
 
 num_carriage = len(real_train_conf['M'])    
-K2 = 100
+K2 = 1000
 K1 = 10000
-C =100
+C =1000
 p =1
 v =1
 Bf = np.ones(num_carriage)
@@ -174,13 +174,13 @@ def SMC_run():
     return E_list,F_hat_l 
 
 
-#_,E1 = NNSMC_e_run()
-#_,E2 = NNSMC_eedot_run()
+_,E1 = NNSMC_e_run()
+_,E2 = NNSMC_eedot_run()
 E3,F_hat_l= SMC_run()
 plt.subplot(311)
-#plt.plot(time,E1[0,:]) 
+plt.plot(time,E1[0,:]) 
 plt.subplot(312)
-#plt.plot(time,E2[0,:]) 
+plt.plot(time,E2[0,:]) 
 plt.subplot(313)
 plt.plot(time,E3[0,:]) 
 
